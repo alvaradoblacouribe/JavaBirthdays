@@ -1,0 +1,28 @@
+Birthdays Algorithm:
+
+1)Ask the year, month, and day. Send month and day to a method to determine the number of the day.
+  - The method will contain a loop which will determine the starting number of the month and then adds
+    the current day to get the number of the day
+Then, send the year to a method that will determine if the year is leap or not, then set number
+of days in a year to either 366 or 365
+2)Print the introduction with the data collected
+3)Input for Person 1 birthday will be asked
+  - Information will be sent to a method that will determine the number of the birthday with the
+  input of the number of years previously determined
+  - The number will be sent to a method that will determine
+
+Create an introduction method where the introductory message will be displayed.
+2)Ask the year, month and day, and send to method that will and run a method that it will test whether
+the current year is a leap year or not, then have two versions of events,
+one with the year 355 days and 366 days
+Within the main method, input for Person 1 will be asked and will be stored in respective variables
+Method day will indicate what day of the year (out of 366) the given birthday is and will be stored in a variable
+Create a for loop that takes in the month and assigns the beginning value of the month to the day number variable
+Create a for loop that takes in the day and adds the days to the day number variable
+Method far away will indicate how far away in days the birthday is from the current day and will be stored in a variable
+If number ==0, then instead of printing 0 it will print a Happy Birthday message
+If date is before the current date, add either 366-number or 365-number days to the current date number
+Method percentage will indicate how far away the birthday is in the context of the year and in a percentage and will be stored in a variable and sent to the main method (number of birthday/ number of current date)
+Within the main method, ask for input for Person 2 and repeat the same methods that were executed for Person 1
+The main method is going to receive the percentage variables and compare them. The one that has the smallest percentage will win. If they are both equal print share same birthday message.
+Then, the program prints a fun fact about your birthday
