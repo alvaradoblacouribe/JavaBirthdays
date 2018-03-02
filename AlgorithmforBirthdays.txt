@@ -9,20 +9,13 @@ of days in a year to either 366 or 365
 3)Input for Person 1 birthday will be asked
   - Information will be sent to a method that will determine the number of the birthday with the
   input of the number of years previously determined
-  - The number will be sent to a method that will determine
-
-Create an introduction method where the introductory message will be displayed.
-2)Ask the year, month and day, and send to method that will and run a method that it will test whether
-the current year is a leap year or not, then have two versions of events,
-one with the year 355 days and 366 days
-Within the main method, input for Person 1 will be asked and will be stored in respective variables
-Method day will indicate what day of the year (out of 366) the given birthday is and will be stored in a variable
-Create a for loop that takes in the month and assigns the beginning value of the month to the day number variable
-Create a for loop that takes in the day and adds the days to the day number variable
-Method far away will indicate how far away in days the birthday is from the current day and will be stored in a variable
-If number ==0, then instead of printing 0 it will print a Happy Birthday message
-If date is before the current date, add either 366-number or 365-number days to the current date number
-Method percentage will indicate how far away the birthday is in the context of the year and in a percentage and will be stored in a variable and sent to the main method (number of birthday/ number of current date)
-Within the main method, ask for input for Person 2 and repeat the same methods that were executed for Person 1
-The main method is going to receive the percentage variables and compare them. The one that has the smallest percentage will win. If they are both equal print share same birthday message.
-Then, the program prints a fun fact about your birthday
+  - The number will be sent to a method that will determine how far away the birthday assigned is from
+    the current date and variable1 will store the distance in number and variable2 will store it in a percentage:
+    -> If variable ==0, then print Happy Birthday message
+    -> If the number is smaller than the current date, then do: 
+      (the total number of the year) - Current number day
+4)Print the percentage of the distance for Person1
+5)Do the same for Person2
+6)Method will determine which one is closer, by looking at the percentages, to the current date and print so.
+  - If they both have the same percentages, then print that they share the same birthday
+  - Method also has to print a fun fact about the winning birthday (if there is winner)
