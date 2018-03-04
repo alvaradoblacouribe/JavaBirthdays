@@ -1,10 +1,10 @@
 Birthdays Algorithm:
 
 1)Ask the year, month, and day. Send month and day to a method to determine the number of the day.
+  - Send the year to a method that will determine if the year is leap or not, then set number
+    of days in a year to either 366 or 365
   - The method will contain a loop which will determine the starting number of the month and then adds
     the current day to get the number of the day
-Then, send the year to a method that will determine if the year is leap or not, then set number
-of days in a year to either 366 or 365
 2)Print the introduction with the data collected
 3)Input for Person 1 birthday will be asked
   - Information will be sent to a method that will determine the number of the birthday with the
@@ -12,8 +12,8 @@ of days in a year to either 366 or 365
   - The number will be sent to a method that will determine how far away the birthday assigned is from
     the current date and variable1 will store the distance in number and variable2 will store it in a percentage:
     -> If variable ==0, then print Happy Birthday message
-    -> If the number is smaller than the current date, then do: 
-      (the total number of the year) - Current number day
+    -> If the number is smaller than the current date, then do:
+      (the total number of the year) - (Current number day- Birthday)
 4)Print the percentage of the distance for Person1
 5)Do the same for Person2
 6)Method will determine which one is closer, by looking at the percentages, to the current date and print so.
