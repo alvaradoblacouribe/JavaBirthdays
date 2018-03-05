@@ -1,29 +1,33 @@
 import java.util.Scanner;
 
+// Round the percentages and create a method that gets the number from the percentage in order
+// to print it
+//Gather a fun fact for your birthday
 public class IsabelAlvaradoBirthdays {
   public static void main (String[] args) {
     Scanner console= new Scanner(System.in);
-    System.out.println("What day is it?");
-    int day= console.nextInt();
-    System.out.println("What month is it?");
-    int month= console.nextInt();
-    System.out.println("What year is it?");
-    int year= console.nextInt();
+    System.out.println("Without the / character, please type the month, day, and year in that order.");
+    int month= Integer.parseInt(console.next());
+    int day= Integer.parseInt(console.next());
+    int year= Integer.parseInt(console.next());
     int dyear= findoutyear(year);
     int numberdate=findoutnumber(day,month,dyear);
     introduction(day,month,year,numberdate);
-    System.out.println("Person 1: \nWhat month were you born in?");
-    int Person1month=console.nextInt();
-    System.out.println("What day were you born in?");
-    int Person1day=console.nextInt();
+
+    System.out.println();
+    System.out.println("Person 1: \nWhat month and day were you born in?");
+    int Person1month=Integer.parseInt(console.next());
+    int Person1day=Integer.parseInt(console.next());
     int numberPerson1=findoutnumber(Person1day,Person1month,dyear);
     double percentPerson1=findoutdistance(numberPerson1,dyear,numberdate);
-    System.out.println("Person 2: \nWhat month were you born in?");
-    int Person2month= console.nextInt();
-    System.out.println("What day were you born in?");
-    int Person2day= console.nextInt();
+    System.out.println(Person1month+"/"+Person1day+"/"+year+" falls on day #"+numberPerson1+" out of "+dyear);
+    
+    System.out.println();
+    System.out.println("Person 2: \nWhat month and day were you born in?");
+    int Person2month=Integer.parseInt(console.next());
+    int Person2day=Integer.parseInt(console.next());
     int numberPerson2= findoutnumber(Person2day,Person2month,dyear);
-    System.out.println(Person2month+"/"+Person2month+"/"+year+" falls on day #"+numberPerson2+" out of "+dyear);
+    System.out.println(Person2month+"/"+Person2day+"/"+year+" falls on day #"+numberPerson2+" out of "+dyear);
     double percentPerson2= findoutdistance(numberPerson2,dyear,numberdate);
     winner(percentPerson1,percentPerson2);
   }
@@ -85,7 +89,8 @@ public class IsabelAlvaradoBirthdays {
       distance= numberperson-numberdate;
     }
     double distancepercent=((double)(distance/(double)dyear)*100);
-    System.out.println(distancepercent);
+    double distancepercentround=
+    System.out.println("That is "+distancepercentround+"percent of a year away");
     if (distancepercent==0){
       System.out.println("Happy Birthday!");
     }
@@ -94,10 +99,10 @@ public class IsabelAlvaradoBirthdays {
 
   public static void winner(double percentPerson1, double percentPerson2){
     if (percentPerson1<percentPerson2){
-      System.out.println("Person 1's birthday is closer");
+      System.out.println("Person 1's birthday is sooner");
     }
     else if (percentPerson2<percentPerson1){
-      System.out.println("Person 2's birthday is closer");
+      System.out.println("Person 2's birthday is sooner");
     }
     else {
       System.out.println("You share the same birthday");
