@@ -1,13 +1,12 @@
 import java.util.Scanner;
 //Day and month is valid
-//Print the zodiac sign 
+//Print the zodiac sign
 public class IsabelAlvaradoBirthdays {
   public static void main (String[] args) {
     Scanner console= new Scanner(System.in);
     System.out.println("Without the / character, please type the month, day, and year in that order.");
     int month= Integer.parseInt(console.next());
     int day= Integer.parseInt(console.next());
-
     int year= Integer.parseInt(console.next());
     int dyear= findoutYear(year);
     int NumberDate=findoutNumber(day,month,dyear);
@@ -24,6 +23,8 @@ public class IsabelAlvaradoBirthdays {
     System.out.print(Person+ ": \nWhat month and day were you born in?");
     int PersonMonth=Integer.parseInt(console.next());
     int PersonDay=Integer.parseInt(console.next());
+    PersonMonth=checkingValidMonth(PersonMonth,console);
+    PersonDay=checkingValidDay(PersonDay,PersonMonth,dyear,console);
     int NumberPerson=findoutNumber(PersonDay,PersonMonth,dyear);
     int NumberDistancePerson=findoutNumberDistance(NumberPerson,dyear,NumberDate);
     System.out.println(Person+ "'s birthday is "+ NumberDistancePerson +" days away from today");
@@ -33,6 +34,62 @@ public class IsabelAlvaradoBirthdays {
       System.out.println("That is also my Birthday! Fun Fact: May 3rd is a famous Spanish Painting about the Spanish Civil War");
     }
     return(percentPerson);
+  }
+  public static int checkingValidMonth(int month, Scanner console){
+    int valid=0;
+    while (valid==0){
+      if (month<1 || month>12){
+        System.out.print("Please type a number between 1 and 12 for the month:");
+        month= console.nextInt();
+      }
+      else{
+        valid++;
+      }
+    }
+    return(month);
+  }
+
+  public static int checkingValidDay(int day, int month, int dyear,Scanner console){
+    int valid=0;
+    while (valid==0){
+      if (month==1 || month==3 ||month==5 || month==7 ||month==8 || month==10 ||month==12){
+        if (day<1||day>31){
+          System.out.print("Please type a number between 1 and 31 for the day:");
+          day=console.nextInt();
+        }
+        else {
+          valid++;
+        }
+      }
+      else if (month==4|| month==6 || month==9 || month==11 ){
+        if (day<1||day>30){
+          System.out.print("Please type a number between 1 and 30 for the day:");
+          day=console.nextInt();
+        }
+        else {
+          valid++;
+        }
+      }
+      else if (month==2 && dyear==366){
+        if (day<1||day>29){
+          System.out.print("Please type a number between 1 and 29 for the day:");
+          day=console.nextInt();
+        }
+        else{
+          valid++;
+        }
+      }
+      else if (month==2 && dyear==365){
+        if (day<1||day>28){
+          System.out.print("Please type a number between 1 and 29 for the day:");
+          day=console.nextInt();
+        }
+        else {
+          valid++;
+        }
+      }
+    }
+    return (day);
   }
 
   public static void introduction(int day, int month, int year, int number) {
@@ -47,7 +104,7 @@ public class IsabelAlvaradoBirthdays {
       if (i==0){
         number=0;
       }
-      if (i==1|| i==3 || i==5 || i==7|| i==8 || i==10 || i==12){
+      else if (i==1|| i==3 || i==5 || i==7|| i==8 || i==10 || i==12){
         number= number +31;
       }
       else if (i==4|| i==6|| i==9|| i==11){
@@ -86,7 +143,7 @@ public class IsabelAlvaradoBirthdays {
   public static double findoutDistance(int distance, int dyear){
     double distancepercent=((double)(distance/(double)dyear)*100);
     String distancepercentR= (distancepercent)+"";
-    System.out.println("That is "+distancepercentR.substring(0,4)+" percent of a year away");
+    System.out.println("That is "+distancepercentR.substring(0,3)+" percent of a year away");
     if (distancepercent==0){
       System.out.println("Happy Birthday!");
     }
