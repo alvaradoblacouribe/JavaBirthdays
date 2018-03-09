@@ -1,5 +1,5 @@
 import java.util.Scanner;
-//Day and month is valid
+//Change the rounding method for a vaid one
 //Print the zodiac sign
 public class IsabelAlvaradoBirthdays {
   public static void main (String[] args) {
@@ -17,7 +17,7 @@ public class IsabelAlvaradoBirthdays {
     double percentPerson2=Base(console,Person,dyear,NumberDate,year);
     winner(percentPerson1,percentPerson2);
   }
-
+//Base is the information that will be gathered from the input provided by Person X
   public static double Base(Scanner console, String Person, int dyear, int NumberDate, int year){
     System.out.println();
     System.out.print(Person+ ": \nWhat month and day were you born in?");
@@ -26,8 +26,9 @@ public class IsabelAlvaradoBirthdays {
     PersonMonth=checkingValidMonth(PersonMonth,console);
     PersonDay=checkingValidDay(PersonDay,PersonMonth,dyear,console);
     int NumberPerson=findoutNumber(PersonDay,PersonMonth,dyear);
+    ZodiacSign(NumberPerson);
     int NumberDistancePerson=findoutNumberDistance(NumberPerson,dyear,NumberDate);
-    System.out.println(Person+ "'s birthday is "+ NumberDistancePerson +" days away from today");
+    System.out.println(Person+ "'s birthday is "+ NumberDistancePerson +" day(s) away from today");
     double percentPerson=findoutDistance(NumberDistancePerson,dyear);
     System.out.println(PersonMonth+"/"+PersonDay+"/"+year+" falls on day #"+NumberPerson+" out of "+dyear);
     if (PersonMonth==5&&PersonDay==3){
@@ -35,6 +36,7 @@ public class IsabelAlvaradoBirthdays {
     }
     return(percentPerson);
   }
+  //Checks that month input is between 1 and 12
   public static int checkingValidMonth(int month, Scanner console){
     int valid=0;
     while (valid==0){
@@ -48,7 +50,7 @@ public class IsabelAlvaradoBirthdays {
     }
     return(month);
   }
-
+//Checks that day input is between the range of the given month
   public static int checkingValidDay(int day, int month, int dyear,Scanner console){
     int valid=0;
     while (valid==0){
@@ -91,12 +93,55 @@ public class IsabelAlvaradoBirthdays {
     }
     return (day);
   }
+//Provides the zodiac sign of the month and day provided with the number it represents
+  public static void ZodiacSign(int number){
+    System.out.print("Zodiac Sign: ");
+    if (number>80&&number<109){
+      System.out.println("Aries");
+    }
+    else if (number>=110&& number <=140){
+      System.out.println("Taurus");
+    }
+    else if (number>=141&& number <=171){
+      System.out.println("Gemini");
+    }
+    else if (number>=172&& number <=203){
+      System.out.println("Cancer");
+    }
+    else if (number>=204&& number <=234){
+      System.out.println("Leo");
+    }
+    else if (number>=235&& number <=265){
+      System.out.println("Virgo");
+    }
+    else if (number>=266&& number <=295){
+      System.out.println("Libra");
+    }
+    else if (number>=296&& number <=325){
+      System.out.println("Scorpio");
+    }
+    else if (number>=326&& number <=355){
+      System.out.println("Sagittarius");
+    }
+    else if (number>=356 || number <=19){
+      System.out.println("Capricorn");
+    }
+    else if (number>=20&& number <=49){
+      System.out.println("Aquarious");
+    }
+    else{
+      System.out.println("Prisces");
+    }
 
+  }
+
+//The introduction to the program
   public static void introduction(int day, int month, int year, int number) {
     String date= month+"/"+day+"/"+year;
     System.out.println("This program compares two birthdays \nand displays which one is sooner \nToday is " +date+ ", day #" +number+ " of the year.");
   }
 
+//Returns the number of the given day and month
   public static int findoutNumber(int day, int month,int dyear) {
     System.out.println();
     int number=0;
@@ -121,6 +166,7 @@ public class IsabelAlvaradoBirthdays {
     return(number);
   }
 
+//It finds out if the year is a leap year or not
   public static int findoutYear(int year){
     if (year%4==0){
       if (year%100==0){
@@ -140,6 +186,7 @@ public class IsabelAlvaradoBirthdays {
     }
   }
 
+//Finds out the distance in percentage between the current date and the given birthday date
   public static double findoutDistance(int distance, int dyear){
     double distancepercent=((double)(distance/(double)dyear)*100);
     String distancepercentR= (distancepercent)+"";
@@ -149,7 +196,7 @@ public class IsabelAlvaradoBirthdays {
     }
     return (distancepercent);
     }
-
+//Finds out the distance in numbers between the current date and the given birthday date
   public static int findoutNumberDistance(int NumberPerson, int dyear, int NumberDate){
     int distance=0;
     if (NumberPerson<NumberDate){
@@ -161,6 +208,7 @@ public class IsabelAlvaradoBirthdays {
     return (distance);
   }
 
+//Provides who's birthday is closer
   public static void winner(double percentPerson1, double percentPerson2){
     System.out.println();
     if (percentPerson1<percentPerson2){
