@@ -1,6 +1,6 @@
 import java.util.Scanner;
 //Change the rounding method for a vaid one
-//Print the zodiac sign
+//Gather the fun facts online (web spiders?)
 public class IsabelAlvaradoBirthdays {
   public static void main (String[] args) {
     Scanner console= new Scanner(System.in);
