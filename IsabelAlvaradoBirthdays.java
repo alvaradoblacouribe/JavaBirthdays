@@ -1,14 +1,16 @@
 import java.util.Scanner;
-//Change the rounding method for a vaid one
-//Gather the fun facts online (web spiders?)
+
 public class IsabelAlvaradoBirthdays {
+  //Main method
   public static void main (String[] args) {
     Scanner console= new Scanner(System.in);
-    System.out.println("Without the / character, please type the month, day, and year in that order.");
+    System.out.println("Without the / character, please type the month, day, and year in that order:");
     int month= Integer.parseInt(console.next());
     int day= Integer.parseInt(console.next());
     int year= Integer.parseInt(console.next());
     int dyear= findoutYear(year);
+    month=checkingValidMonth(month,console);
+    day= checkingValidDay(day,month,dyear,console);
     int NumberDate=findoutNumber(day,month,dyear);
     introduction(day,month,year,NumberDate);
     String Person= "Person 1";
@@ -20,7 +22,7 @@ public class IsabelAlvaradoBirthdays {
 //Base is the information that will be gathered from the input provided by Person X
   public static double Base(Scanner console, String Person, int dyear, int NumberDate, int year){
     System.out.println();
-    System.out.print(Person+ ": \nWhat month and day were you born in?");
+    System.out.print(Person+ ": \nWhat month and day were you born in? ");
     int PersonMonth=Integer.parseInt(console.next());
     int PersonDay=Integer.parseInt(console.next());
     PersonMonth=checkingValidMonth(PersonMonth,console);
@@ -39,9 +41,9 @@ public class IsabelAlvaradoBirthdays {
   //Checks that month input is between 1 and 12
   public static int checkingValidMonth(int month, Scanner console){
     int valid=0;
-    while (valid==0){
+     for (int i=0;valid==0;i++){
       if (month<1 || month>12){
-        System.out.print("Please type a number between 1 and 12 for the month:");
+        System.out.print("Please type a number between 1 and 12 for the month: ");
         month= console.nextInt();
       }
       else{
@@ -53,10 +55,10 @@ public class IsabelAlvaradoBirthdays {
 //Checks that day input is between the range of the given month
   public static int checkingValidDay(int day, int month, int dyear,Scanner console){
     int valid=0;
-    while (valid==0){
+    for (int i=0;valid==0;i++){
       if (month==1 || month==3 ||month==5 || month==7 ||month==8 || month==10 ||month==12){
         if (day<1||day>31){
-          System.out.print("Please type a number between 1 and 31 for the day:");
+          System.out.print("Please type a number between 1 and 31 for the day: ");
           day=console.nextInt();
         }
         else {
@@ -65,7 +67,7 @@ public class IsabelAlvaradoBirthdays {
       }
       else if (month==4|| month==6 || month==9 || month==11 ){
         if (day<1||day>30){
-          System.out.print("Please type a number between 1 and 30 for the day:");
+          System.out.print("Please type a number between 1 and 30 for the day: ");
           day=console.nextInt();
         }
         else {
@@ -74,7 +76,7 @@ public class IsabelAlvaradoBirthdays {
       }
       else if (month==2 && dyear==366){
         if (day<1||day>29){
-          System.out.print("Please type a number between 1 and 29 for the day:");
+          System.out.print("Please type a number between 1 and 29 for the day: ");
           day=console.nextInt();
         }
         else{
@@ -83,7 +85,7 @@ public class IsabelAlvaradoBirthdays {
       }
       else if (month==2 && dyear==365){
         if (day<1||day>28){
-          System.out.print("Please type a number between 1 and 29 for the day:");
+          System.out.print("Please type a number between 1 and 29 for the day: ");
           day=console.nextInt();
         }
         else {
@@ -189,13 +191,20 @@ public class IsabelAlvaradoBirthdays {
 //Finds out the distance in percentage between the current date and the given birthday date
   public static double findoutDistance(int distance, int dyear){
     double distancepercent=((double)(distance/(double)dyear)*100);
-    String distancepercentR= (distancepercent)+"";
-    System.out.println("That is "+distancepercentR.substring(0,3)+" percent of a year away");
+    double distancepercentR=RoundNumber(distancepercent);
+    System.out.println("That is "+distancepercentR+" percent of a year away");
     if (distancepercent==0){
       System.out.println("Happy Birthday!");
     }
     return (distancepercent);
     }
+
+//Rounds the numbers
+  public static double RoundNumber (double value) {
+    int scale = (int) Math.pow(10, 1);
+    double rounded= (double)Math.round(value * scale) / scale;
+    return (rounded);
+}
 //Finds out the distance in numbers between the current date and the given birthday date
   public static int findoutNumberDistance(int NumberPerson, int dyear, int NumberDate){
     int distance=0;
